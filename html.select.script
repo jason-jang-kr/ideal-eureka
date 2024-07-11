@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+<!--인트라넷 관리자 문제생성에서 Reading 문제유형을 선택하면 해당하는 값이 미리 나타난다.-->
+<!--미리 정해진 값은 class에 넣어서 사용해야 함 -->
+<!--템플릿: 단어문제, insertion, summary -->
+
+    <select id="q_type">
+        <option value="">select</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select>
+    <span id="spanMe"></span>
+    <input type="text" id="list1" />
+    <input type="text" id="list2" />
+    <input type="text" id="list3" />
+    <input type="text" id="list4" />
+
+<script>
+    $('#q_type').on('change', function() {
+        let val = $(this).val();
+        // console.log( val );
+        let string1 = 'The word "" in the passage is closest in meaning to';
+        let string3 = 'Simplify the sentence';
+        let string4 = 'Summarize the point ...';
+        if ( val=='2' ) {
+            $('#list1').val('[A]');
+            $('#list2').val('[B]');
+            $('#list3').val('[C]');
+            $('#list4').val('[D]');
+        }
+        if ( val=='1') {
+            $('#spanMe').html( string1 );
+        }
+        if ( val=='3') {
+            $('#spanMe').html( string3 );
+        }
+        if ( val=='4') {
+            $('#spanMe').html( string4 );
+        }
+
+    });
+</script>
+</body>
+</html>
+
